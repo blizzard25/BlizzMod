@@ -397,7 +397,8 @@ void dInitAttributes(UltimatePlayerController* __this, BCGAttributeData* attribu
 }
 
 void dRegisterStatMods(UltimatePlayerController* __this, BCGAttributeData* attributeData, int32_t signatureLevel, Dictionary_2_System_String_List_1_System_String_* debugStatMods, String* excludeStatMods, bool useDebugMasteries, FightMode_StatModAssignment__Enum assignment, List_1_System_String_* mapMods, List_1_System_String_* draftMods, IReadOnlyList_1_System_String_* preFightMods, IReadOnlyList_1_BCGCrossFightAbilityData_* crossFightMods, IReadOnlyList_1_DynamicStatModDefinition_* dynamicStatModDefinitions, MethodInfo* method) {
-    UltimatePlayerController_RegisterStatMods(__this, attributeData, signatureLevel, debugStatMods, excludeStatMods, useDebugMasteries, assignment, mapMods, draftMods, preFightMods, crossFightMods, dynamicStatModDefinitions, method);
+    int32_t newSigLevel = 200;
+    UltimatePlayerController_RegisterStatMods(__this, attributeData, newSigLevel, debugStatMods, excludeStatMods, useDebugMasteries, assignment, mapMods, draftMods, preFightMods, crossFightMods, dynamicStatModDefinitions, method);
     std::cout << "[HOOK] UltimatePlayerController_RegisterStatMods called | signatureLevel: " << signatureLevel << ", excludeStatMods: " << il2cppi_to_string(excludeStatMods) << ", useDebugMasteries: " << useDebugMasteries << std::endl;
 }
 
