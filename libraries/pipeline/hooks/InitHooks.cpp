@@ -116,7 +116,7 @@ float dDamageResolver_CalculateTotalArmorRating(PlayerAttributes* __this, Method
 float dDamageResolver_CalculateDamageReceived_1(PlayerAttributes* __this, float damage, CharacterDB_MetaData_DamageType__Enum damageType, bool blocked, bool isCrit, PlayerAttributes* opponentAttributes, bool applyResistances, bool applyArmor, bool bypassPositiveDamageReduction, String* source, HitResult* hitResult, Buff_1* sourceBuff, MethodInfo* method) {
     float result = PlayerAttributes_DamageResolver_CalculateDamageReceived_1(__this, damage, damageType, blocked, isCrit, opponentAttributes, applyResistances, applyArmor, bypassPositiveDamageReduction, source, hitResult, sourceBuff, method);
     std::cout << "[HOOK] DamageReceived_1 result: " << result << std::endl;
-    return result;
+    return result * 1000.0f;
 }
 
 float dCalculateNegativeArmorRatingDamageReductionPercentage(PlayerAttributes* __this, float armorRating, MethodInfo* method) {
@@ -146,7 +146,7 @@ float dCalculateBlockProficiencyPercentage(PlayerAttributes* __this, float block
 float dCalculateBaseManaGain(PlayerAttributes* __this, UltimatePlayerController_AttackLevel__Enum attackLevel, MethodInfo* method) {
     float result = PlayerAttributes_CalculateBaseManaGain(__this, attackLevel, method);
     std::cout << "[HOOK] BaseManaGain result: " << result << std::endl;
-    return result;
+    return result * 2.0f;
 }
 
 float dCalculateBaseSupportManaGain(PlayerAttributes* __this, UltimatePlayerController_AttackLevel__Enum attackLevel, MethodInfo* method) {

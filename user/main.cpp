@@ -9,7 +9,7 @@
 #include <il2cpp-init.h>
 
 #include <pipeline/hooks/InitHooks.h>
-
+#include <pipeline/gui/menu.h>
 
 using namespace app;
 
@@ -79,7 +79,6 @@ void Run(LPVOID lpParam)
 		std::cout << "Failed to create unload event! Error code: " << GetLastError() << std::endl;
 		return;
 	}
-
 
 	DWORD dwThreadId;
 	HANDLE hWatcherThread = CreateThread(NULL, 0, UnloadWatcherThread, hUnloadEvent, 0, &dwThreadId);

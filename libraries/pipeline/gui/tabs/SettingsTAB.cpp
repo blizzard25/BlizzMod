@@ -16,9 +16,9 @@ void SettingsTAB::Render()
         ImGui::Spacing();
 
         ImGui::PushTextWrapPos(ImGui::GetCursorPos().x + 550.0f);
-        ImGui::Text("Il2CppInspectorPro by Jadis0x");
-        ImGui::Text("Discord: Jadis0x");
-        ImGui::Text("Github: Jadis0x");
+        ImGui::Text("BlizzMod Menu");
+        ImGui::Text("Discord: Blizzard25");
+        ImGui::Text("Github: Blizzard25");
         ImGui::PopTextWrapPos();
         ImGui::Spacing();
         ImGui::Separator();
@@ -32,9 +32,9 @@ void SettingsTAB::Render()
             SetEvent(hUnloadEvent);
         }
 
-        if (ImGui::Button("Donate"))
+        if (ImGui::Button("Repository"))
         {
-            app::Application_OpenURL(reinterpret_cast<app::String*>(il2cpp_string_new("https://www.buymeacoffee.com/jadis0x")), nullptr);
+            app::Application_OpenURL(reinterpret_cast<app::String*>(il2cpp_string_new("https://github.com/blizzard25/BlizzMod")), nullptr);
         }
 
         ImGui::EndTabItem();
