@@ -407,6 +407,24 @@ void dRegisterGameplayStatmods(UltimatePlayerController* __this, BCGAttributeDat
     std::cout << "[HOOK] UltimatePlayerController_RegisterGameplayStatmods called" << std::endl;
 }
 
+
+Vector3 dPlayerPos(UltimatePlayerController* __this, MethodInfo* method) {
+    Vector3 result = UltimatePlayerController_PlayerPos(__this, method);
+    std::cout << "[HOOK] UltimatePlayerController_PlayerPos called" << std::endl;
+    std::cout << "  Result: (" << result.x << ", " << result.y << ", " << result.z << ")" << std::endl;
+    return result;
+}
+//Vector3 dPlayerPos(UltimatePlayerController* __this, MethodInfo* method) {
+    //Vector3 result = UltimatePlayerController_PlayerPos(__this, method);
+
+    // Always override the z value
+    //result.z = 0.3f;
+    //result.y = 2.0f;
+
+    //std::cout << "[HOOK] PlayerPos called | x: " << result.x << " y: " << result.y << " z: " << result.z << std::endl;
+    //return result;
+//}
+
 // === DraftBuffInfoPanel
 
 void LogBuffList(app::List_1_EB_Sparx_Buff_* buffList) {
@@ -642,6 +660,8 @@ void DetourInitilization() {
     HookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_InitAttributes), dInitAttributes, "UltimatePlayerController_InitAttributes");
     HookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_RegisterStatMods), dRegisterStatMods, "UltimatePlayerController_RegisterStatMods");
     HookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_RegisterGameplayStatmods), dRegisterGameplayStatmods, "UltimatePlayerController_RegisterGameplayStatmods");
+    //HookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_PlayerPos), dPlayerPos, "UltimatePlayerController_PlayerPos");
+
 
     // DraftBuffInfoPanel
     HookFunction(reinterpret_cast<PVOID*>(&DraftBuffInfoPanel_Set), dSet, "DraftBuffInfoPanel_Set");
@@ -731,6 +751,8 @@ void DetourUninitialization() {
     UnhookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_InitAttributes), dInitAttributes, "UltimatePlayerController_InitAttributes");
     UnhookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_RegisterStatMods), dRegisterStatMods, "UltimatePlayerController_RegisterStatMods");
     UnhookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_RegisterGameplayStatmods), dRegisterGameplayStatmods, "UltimatePlayerController_RegisterGameplayStatmods");
+    //UnhookFunction(reinterpret_cast<PVOID*>(&UltimatePlayerController_PlayerPos), dPlayerPos, "UltimatePlayerController_PlayerPos");
+
 
     // DraftBuffInfoPanel
     UnhookFunction(reinterpret_cast<PVOID*>(&DraftBuffInfoPanel_Set), dSet, "DraftBuffInfoPanel_Set");
